@@ -10,7 +10,6 @@ export const GlobalStyle = createGlobalStyle`
 
     :focus {
         outline: 0;
-        box-shadow: 0 0 0 1px ${(props) => props.theme['purple-dark']}
     }
 
     body {
@@ -18,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
         color: ${(props) => props.theme['gray-100']}
     }
 
-    body, input, textarea, button {
+    body, input, button {
         font-family: 'Inter', sans-serif;
         font-weight: 400;
         font-size: 1rem;

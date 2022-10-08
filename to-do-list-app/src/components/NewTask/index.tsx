@@ -3,7 +3,7 @@ import { NewTaskConainer, NewTaskInput } from './styles'
 export function NewTask() {
   return (
     <NewTaskConainer>
-      <NewTaskInput />
+      <NewTaskInput placeholder="Adicione uma nova tarefa" />
     </NewTaskConainer>
   )
 }
