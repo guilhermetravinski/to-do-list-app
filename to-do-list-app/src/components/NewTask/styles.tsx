@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
 export const NewTaskConainer = styled.div`
+  display: flex;
   flex-direction: row;
   align-items: center;
   padding: 0px;
-  gap: 8px;
+  gap: 0.5rem;
 
   position: absolute;
   width: 46rem;
@@ -34,5 +35,28 @@ export const NewTaskInput = styled.input`
   :focus {
     border: 1px solid ${(props) => props.theme['purple-dark']};
     color: ${(props) => props.theme['gray-100']};
+  }
+`
+export const NewTaskButton = styled.button`
+  width: hug;
+  height: hug;
+  background: ${(props) => props.theme['blue-dark']};
+  border-radius: 8px;
+  color: ${(props) => props.theme['gray-100']};
+  border: 0;
+  font-weight: 700;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  gap: 0.5rem;
+
+  font-size: 0.875rem;
+  line-height: 140%;
+
+  :hover {
+    background: ${(props) => props.theme.blue};
   }
 `
