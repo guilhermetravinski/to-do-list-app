@@ -1,4 +1,4 @@
-import { ClipboardText } from 'phosphor-react'
+import { ClipboardText, Trash } from 'phosphor-react'
 import styles from './Tasks.module.css'
 
 type Task = {
@@ -14,7 +14,15 @@ interface TasksProps {
 }
 
 export function Tasks({ tasks, onCompleteTask, onRemoveTask }: TasksProps) {
-  const totalTaskCreated = 0
+  function handleCheckChange(taskId: string) {
+    onCompleteTask(taskId)
+  }
+
+  function handleRemoveTask(taskId: string) {
+    onRemoveTask(taskId)
+  }
+
+  const totalTaskCreated = tasks.length
   const totalTaskDone = tasks.reduce(
     (acc, cur) => acc + Number(cur.isCompleted),
     0,
@@ -48,7 +56,35 @@ export function Tasks({ tasks, onCompleteTask, onRemoveTask }: TasksProps) {
           </div>
         </div>
       ) : (
-        <div></div>
+        <div className={styles.taskListContainer}>
+          {tasks.map((task) => {
+            return (
+              <div key={task.id} className={styles.taskItemContainer}>
+                <input
+                  className={styles.checkbox}
+                  type="checkbox"
+                  checked={task.isCompleted}
+                  onChange={() => handleCheckChange(task.id)}
+                />
+                <p
+                  className={
+                    task.isCompleted
+                      ? styles.titleTaskCompleted
+                      : styles.titleTask
+                  }
+                >
+                  {task.title}
+                </p>
+                <Trash
+                  role="button"
+                  className={styles.removeIcon}
+                  size={24}
+                  onClick={() => handleRemoveTask(task.id)}
+                />
+              </div>
+            )
+          })}
+        </div>
       )}
     </div>
   )
